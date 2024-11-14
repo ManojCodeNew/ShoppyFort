@@ -1,0 +1,105 @@
+@import '../variables';
+
+.featured-categories {
+  padding: 24px 16px;
+  background: $white;
+
+  @include tablet-and-up {
+    padding: 48px 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 24px;
+
+    @include tablet-and-up {
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+  }
+
+  .categories-grid {
+    display: grid;
+    gap: 16px;
+
+    @include mobile-only {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include tablet-only {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @include desktop-only {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+  }
+
+  .category-card {
+    text-decoration: none;
+    color: inherit;
+    
+    &:hover {
+      .category-image img {
+        transform: scale(1.05);
+      }
+
+      h3 {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .category-image {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 12px;
+
+    @include tablet-and-up {
+      margin-bottom: 16px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    transition: color 0.3s ease;
+
+    @include tablet-and-up {
+      font-size: 18px;
+    }
+  }
+}
+
+.categories-loading {
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: $white;
+  color: $gray-dark;
+
+  .spinner {
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

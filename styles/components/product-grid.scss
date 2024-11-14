@@ -1,0 +1,30 @@
+@import '../variables';
+
+.product-grid {
+  display: grid;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @include mobile-only {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 20px;
+  }
+
+  @include tablet-only {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+    padding: 30px;
+  }
+
+  @include desktop-only {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  @media (min-width: #{$breakpoint-xl}) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
